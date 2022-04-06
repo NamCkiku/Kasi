@@ -25,5 +25,6 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Kasi_Server.Logging\Kasi_Server.Logging.csproj" />
 		<ProjectReference Include="..\Kasi_Server.Utils\Kasi_Server.Utils.csproj" />
+		<ProjectReference Include="..\Kasi_Server\Kasi_Server.csproj" />
 	</ItemGroup>
 </Project>

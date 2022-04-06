@@ -1,79 +1,78 @@
+using Kasi_Server.Common.Consul;
 using Kasi_Server.Common.Consul.Builders;
 using Kasi_Server.Common.Consul.Http;
 using Kasi_Server.Common.Consul.MessageHandlers;
 using Kasi_Server.Common.Consul.Models;
 using Kasi_Server.Common.Consul.Services;
 using Kasi_Server.Common.HTTP;
-using Kasi_Server.Common.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Kasi_Server.Common.Consul;
+namespace Kasi_Server.Discovery.Consul;
 
 public static class Extensions
 {
     private const string DefaultInterval = "5s";
     private const string SectionName = "consul";
+    private const string RegistryName = "discovery.consul";
 
-    public static IServiceCollection AddConsul(this IServiceCollection services, string sectionName = SectionName,
+    public static IKasi_ServerBuilder AddConsul(this IKasi_ServerBuilder builder, string sectionName = SectionName,
         string httpClientSectionName = "httpClient")
     {
         if (string.IsNullOrWhiteSpace(sectionName))
         {
             sectionName = SectionName;
         }
-        var svcProvider = services.BuildServiceProvider();
-        var config = svcProvider.GetRequiredService<IConfiguration>();
-        var consulOptions = config.GetOptions<ConsulOptions>(sectionName);
-        var httpClientOptions = config.GetOptions<HttpClientOptions>(httpClientSectionName);
-        return services.AddConsul(consulOptions, httpClientOptions);
+
+        var consulOptions = builder.GetOptions<ConsulOptions>(sectionName);
+        var httpClientOptions = builder.GetOptions<HttpClientOptions>(httpClientSectionName);
+        return builder.AddConsul(consulOptions, httpClientOptions);
     }
 
-    public static IServiceCollection AddConsul(this IServiceCollection services,
+    public static IKasi_ServerBuilder AddConsul(this IKasi_ServerBuilder builder,
         Func<IConsulOptionsBuilder, IConsulOptionsBuilder> buildOptions, HttpClientOptions httpClientOptions)
     {
         var options = buildOptions(new ConsulOptionsBuilder()).Build();
-        return services.AddConsul(options, httpClientOptions);
+        return builder.AddConsul(options, httpClientOptions);
     }
 
-    public static IServiceCollection AddConsul(this IServiceCollection services, ConsulOptions options,
+    public static IKasi_ServerBuilder AddConsul(this IKasi_ServerBuilder builder, ConsulOptions options,
         HttpClientOptions httpClientOptions)
     {
-        services.AddSingleton(options);
-        if (!options.Enabled)
+        builder.Services.AddSingleton(options);
+        if (!options.Enabled || !builder.TryRegister(RegistryName))
         {
-            return services;
+            return builder;
         }
 
         if (httpClientOptions.Type?.ToLowerInvariant() == "consul")
         {
-            services.AddTransient<ConsulServiceDiscoveryMessageHandler>();
-            services.AddHttpClient<IConsulHttpClient, ConsulHttpClient>("consul-http")
+            builder.Services.AddTransient<ConsulServiceDiscoveryMessageHandler>();
+            builder.Services.AddHttpClient<IConsulHttpClient, ConsulHttpClient>("consul-http")
                 .AddHttpMessageHandler<ConsulServiceDiscoveryMessageHandler>();
-            services.RemoveHttpClient();
-            services.AddHttpClient<IHttpClient, ConsulHttpClient>("consul")
+            builder.RemoveHttpClient();
+            builder.Services.AddHttpClient<IHttpClient, ConsulHttpClient>("consul")
                 .AddHttpMessageHandler<ConsulServiceDiscoveryMessageHandler>();
         }
 
-        services.AddTransient<IConsulServicesRegistry, ConsulServicesRegistry>();
-        var registration = services.CreateConsulAgentRegistration(options);
+        builder.Services.AddTransient<IConsulServicesRegistry, ConsulServicesRegistry>();
+        var registration = builder.CreateConsulAgentRegistration(options);
         if (registration is null)
         {
-            return services;
+            return builder;
         }
 
-        services.AddSingleton(registration);
+        builder.Services.AddSingleton(registration);
 
-        return services;
+        return builder;
     }
 
-    public static void AddConsulHttpClient(this IServiceCollection services, string clientName, string serviceName)
-        => services.AddHttpClient<IHttpClient, ConsulHttpClient>(clientName)
+    public static void AddConsulHttpClient(this IKasi_ServerBuilder builder, string clientName, string serviceName)
+        => builder.Services.AddHttpClient<IHttpClient, ConsulHttpClient>(clientName)
             .AddHttpMessageHandler(c => new ConsulServiceDiscoveryMessageHandler(
                 c.GetRequiredService<IConsulServicesRegistry>(),
                 c.GetRequiredService<ConsulOptions>(), serviceName, true));
 
-    private static ServiceRegistration CreateConsulAgentRegistration(this IServiceCollection services,
+    private static ServiceRegistration CreateConsulAgentRegistration(this IKasi_ServerBuilder builder,
         ConsulOptions options)
     {
         var enabled = options.Enabled;
@@ -94,15 +93,15 @@ public static class Extensions
                 nameof(options.PingEndpoint));
         }
 
-        services.AddHttpClient<IConsulService, ConsulService>(c => c.BaseAddress = new Uri(options.Url));
+        builder.Services.AddHttpClient<IConsulService, ConsulService>(c => c.BaseAddress = new Uri(options.Url));
 
-        if (services.All(x => x.ServiceType != typeof(ConsulHostedService)))
+        if (builder.Services.All(x => x.ServiceType != typeof(ConsulHostedService)))
         {
-            services.AddHostedService<ConsulHostedService>();
+            builder.Services.AddHostedService<ConsulHostedService>();
         }
 
         string serviceId;
-        using (var serviceProvider = services.BuildServiceProvider())
+        using (var serviceProvider = builder.Services.BuildServiceProvider())
         {
             serviceId = serviceProvider.GetRequiredService<IServiceId>().Id;
         }
