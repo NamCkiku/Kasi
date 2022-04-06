@@ -1,18 +1,15 @@
-using System;
+namespace Kasi_Server.Common.RestEase;
 
-namespace Kasi_Server.Common.RestEase
+public class RestEaseServiceNotFoundException : Exception
 {
-    public class RestEaseServiceNotFoundException : Exception
-    {
-        public string ServiceName { get; set; }
-        
-        public RestEaseServiceNotFoundException(string serviceName) : this(string.Empty, serviceName)
-        {
-        }
+    public string ServiceName { get; set; }
 
-        public RestEaseServiceNotFoundException(string message, string serviceName) : base(message)
-        {
-            ServiceName = serviceName;
-        }
+    public RestEaseServiceNotFoundException(string serviceName) : this(string.Empty, serviceName)
+    {
+    }
+
+    public RestEaseServiceNotFoundException(string message, string serviceName) : base(message)
+    {
+        ServiceName = serviceName;
     }
 }

@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
+namespace Kasi_Server.Common.RestEase;
 
-namespace Kasi_Server.Common.RestEase
+public class RestEaseOptions
 {
-    public class RestEaseOptions
-    {
-        public string LoadBalancer { get; set; }
-        public List<Service> Services { get; set; }
-    }
+    public string LoadBalancer { get; set; }
+    public IEnumerable<Service> Services { get; set; }
 
     public class Service
     {
