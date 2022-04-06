@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="MediatR" Version="10.0.1" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />
+		<PackageReference Include="Quartz" Version="3.3.3" />
+		<PackageReference Include="RestEase" Version="1.5.5" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Kasi_Server.Logging\Kasi_Server.Logging.csproj" />
+	  <ProjectReference Include="..\Kasi_Server.Utils\Kasi_Server.Utils.csproj" />
+	</ItemGroup>
+</Project>
