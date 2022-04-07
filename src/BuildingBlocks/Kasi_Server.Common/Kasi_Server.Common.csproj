@@ -21,9 +21,12 @@
 		<PackageReference Include="RestEase" Version="1.5.5" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
 		<PackageReference Include="Polly" Version="7.2.2" />
+		<PackageReference Include="Jaeger" Version="1.0.3" />
+		<PackageReference Include="OpenTracing.Contrib.NetCore" Version="0.8.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Kasi_Server.Logging\Kasi_Server.Logging.csproj" />
+		<ProjectReference Include="..\Kasi_Server.MessageBrokers.RabbitMQ\Kasi_Server.MessageBrokers.RabbitMQ.csproj" />
 		<ProjectReference Include="..\Kasi_Server.Utils\Kasi_Server.Utils.csproj" />
 		<ProjectReference Include="..\Kasi_Server\Kasi_Server.csproj" />
 	</ItemGroup>
