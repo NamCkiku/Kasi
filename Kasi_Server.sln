@@ -33,13 +33,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kasi_Server.Logging", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kasi_Server.Utils", "src\BuildingBlocks\Kasi_Server.Utils\Kasi_Server.Utils.csproj", "{D5ABBD05-7AA3-480F-8ED1-F9C9554EF27E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasi_Server.MessageBrokers", "src\BuildingBlocks\Kasi_Server.MessageBrokers\Kasi_Server.MessageBrokers.csproj", "{58B5E823-BF3E-4F05-A28A-CCECEF3123CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kasi_Server.MessageBrokers", "src\BuildingBlocks\Kasi_Server.MessageBrokers\Kasi_Server.MessageBrokers.csproj", "{58B5E823-BF3E-4F05-A28A-CCECEF3123CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasi_Server.MessageBrokers.RabbitMQ", "src\BuildingBlocks\Kasi_Server.MessageBrokers.RabbitMQ\Kasi_Server.MessageBrokers.RabbitMQ.csproj", "{D8F2B485-C20B-4DD1-8996-354B020F8EEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kasi_Server.MessageBrokers.RabbitMQ", "src\BuildingBlocks\Kasi_Server.MessageBrokers.RabbitMQ\Kasi_Server.MessageBrokers.RabbitMQ.csproj", "{D8F2B485-C20B-4DD1-8996-354B020F8EEB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.0 - Kasi", "1.0 - Kasi", "{84E873EA-7B33-46D7-9E87-45AC466D3CCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasi_Server", "src\BuildingBlocks\Kasi_Server\Kasi_Server.csproj", "{2659B466-67A9-42F4-B1B3-789CBCFB86E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kasi_Server", "src\BuildingBlocks\Kasi_Server\Kasi_Server.csproj", "{2659B466-67A9-42F4-B1B3-789CBCFB86E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasi_Server.SignalR", "src\BuildingBlocks\Kasi_Server.SignalR\Kasi_Server.SignalR.csproj", "{AEF7CB13-85C8-4423-9A6E-35C14097133C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{2659B466-67A9-42F4-B1B3-789CBCFB86E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2659B466-67A9-42F4-B1B3-789CBCFB86E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2659B466-67A9-42F4-B1B3-789CBCFB86E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF7CB13-85C8-4423-9A6E-35C14097133C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF7CB13-85C8-4423-9A6E-35C14097133C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF7CB13-85C8-4423-9A6E-35C14097133C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF7CB13-85C8-4423-9A6E-35C14097133C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{D8F2B485-C20B-4DD1-8996-354B020F8EEB} = {AC0FCB6A-8826-41B4-84F8-51091EACC79E}
 		{84E873EA-7B33-46D7-9E87-45AC466D3CCA} = {FFB20901-8C04-4B49-8F71-8E834CFFDD1F}
 		{2659B466-67A9-42F4-B1B3-789CBCFB86E2} = {84E873EA-7B33-46D7-9E87-45AC466D3CCA}
+		{AEF7CB13-85C8-4423-9A6E-35C14097133C} = {3C1EF603-58C4-4D34-A624-D307AB62A544}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {457CF00A-D235-46BD-A931-7D311A0BA143}
