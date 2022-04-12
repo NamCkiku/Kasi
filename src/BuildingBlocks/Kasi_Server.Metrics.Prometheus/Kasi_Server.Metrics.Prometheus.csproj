@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Kasi_Server.AppMetrics\Kasi_Server.AppMetrics.csproj" />
+		<ProjectReference Include="..\Kasi_Server\Kasi_Server.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="prometheus-net" Version="5.0.2" />
+		<PackageReference Include="prometheus-net.AspNetCore" Version="5.0.2" />
+		<PackageReference Include="prometheus-net.AspNetCore.Grpc" Version="5.0.2" />
+		<PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="5.0.2" />
+		<PackageReference Include="prometheus-net.DotNetRuntime" Version="4.2.2" />
+		<PackageReference Include="prometheus-net.SystemMetrics" Version="2.0.0" />
+	</ItemGroup>
+</Project>

@@ -41,7 +41,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.0 - Kasi", "1.0 - Kasi", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kasi_Server", "src\BuildingBlocks\Kasi_Server\Kasi_Server.csproj", "{2659B466-67A9-42F4-B1B3-789CBCFB86E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasi_Server.SignalR", "src\BuildingBlocks\Kasi_Server.SignalR\Kasi_Server.SignalR.csproj", "{AEF7CB13-85C8-4423-9A6E-35C14097133C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kasi_Server.SignalR", "src\BuildingBlocks\Kasi_Server.SignalR\Kasi_Server.SignalR.csproj", "{AEF7CB13-85C8-4423-9A6E-35C14097133C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.8 - Metrics", "1.8 - Metrics", "{2928DDB3-56C8-4D0E-B616-935DFBFD282E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasi_Server.AppMetrics", "src\BuildingBlocks\Kasi_Server.AppMetrics\Kasi_Server.AppMetrics.csproj", "{0C3A8E49-AF71-40C3-8388-D0B952CEBA3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kasi_Server.Metrics.Prometheus", "src\BuildingBlocks\Kasi_Server.Metrics.Prometheus\Kasi_Server.Metrics.Prometheus.csproj", "{A80A7B72-3580-4A13-AF00-7FD458DFAC8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +83,14 @@ Global
 		{AEF7CB13-85C8-4423-9A6E-35C14097133C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEF7CB13-85C8-4423-9A6E-35C14097133C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEF7CB13-85C8-4423-9A6E-35C14097133C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C3A8E49-AF71-40C3-8388-D0B952CEBA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C3A8E49-AF71-40C3-8388-D0B952CEBA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C3A8E49-AF71-40C3-8388-D0B952CEBA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C3A8E49-AF71-40C3-8388-D0B952CEBA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80A7B72-3580-4A13-AF00-7FD458DFAC8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80A7B72-3580-4A13-AF00-7FD458DFAC8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80A7B72-3580-4A13-AF00-7FD458DFAC8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80A7B72-3580-4A13-AF00-7FD458DFAC8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +111,9 @@ Global
 		{84E873EA-7B33-46D7-9E87-45AC466D3CCA} = {FFB20901-8C04-4B49-8F71-8E834CFFDD1F}
 		{2659B466-67A9-42F4-B1B3-789CBCFB86E2} = {84E873EA-7B33-46D7-9E87-45AC466D3CCA}
 		{AEF7CB13-85C8-4423-9A6E-35C14097133C} = {3C1EF603-58C4-4D34-A624-D307AB62A544}
+		{2928DDB3-56C8-4D0E-B616-935DFBFD282E} = {FFB20901-8C04-4B49-8F71-8E834CFFDD1F}
+		{0C3A8E49-AF71-40C3-8388-D0B952CEBA3B} = {2928DDB3-56C8-4D0E-B616-935DFBFD282E}
+		{A80A7B72-3580-4A13-AF00-7FD458DFAC8D} = {2928DDB3-56C8-4D0E-B616-935DFBFD282E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {457CF00A-D235-46BD-A931-7D311A0BA143}
