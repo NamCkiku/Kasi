@@ -10,11 +10,11 @@
 		<ProjectReference Include="..\Kasi_Server\Kasi_Server.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="prometheus-net" Version="5.0.2" />
-		<PackageReference Include="prometheus-net.AspNetCore" Version="5.0.2" />
-		<PackageReference Include="prometheus-net.AspNetCore.Grpc" Version="5.0.2" />
-		<PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="5.0.2" />
-		<PackageReference Include="prometheus-net.DotNetRuntime" Version="4.2.2" />
+		<PackageReference Include="prometheus-net" Version="6.0.0" />
+		<PackageReference Include="prometheus-net.AspNetCore" Version="6.0.0" />
+		<PackageReference Include="prometheus-net.AspNetCore.Grpc" Version="6.0.0" />
+		<PackageReference Include="prometheus-net.AspNetCore.HealthChecks" Version="6.0.0" />
+		<PackageReference Include="prometheus-net.DotNetRuntime" Version="4.2.3" />
 		<PackageReference Include="prometheus-net.SystemMetrics" Version="2.0.0" />
 	</ItemGroup>
 </Project>
